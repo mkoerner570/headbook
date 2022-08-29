@@ -5,3 +5,4 @@ class Posts(db.Model):
 
     id = db.Column(db.Interger, primary_key=True)
     body = db.Column(db.String)
+    pic = db.Column(db.String)
