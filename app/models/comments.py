@@ -14,3 +14,12 @@ class Comments(db.Model):
     post_id = db.Column(db.Interger, db.ForeignKey("posts.id"))
     posts = db.relationship("Posts", back_populates="comments")
 
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "body":self.body,
+            "pic":self.pic,
+            "likes":self.likes,
+            "user_id":self.user_id,
+            "post_id":self.post_id
+        }
