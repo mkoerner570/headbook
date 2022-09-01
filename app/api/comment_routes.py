@@ -13,3 +13,7 @@ def get_comments(id):
     post_comments = Comments.query.filter(Comments.post_id == id).all()
     return {'allComments':[comment.to_dict() for comment in post_comments]}
 
+@comment_routes.route('/comments/<int:id>/single')
+def single_comment(id):
+    singleComment = Comments.query.filter(Comments.id == id).first()
+    return {'singleComment':singleComment.to_dict()}
