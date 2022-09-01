@@ -15,15 +15,15 @@ def all_posts():
     posts = Posts.query.all()
     return {'post': [post.to_dict() for post in posts ]}
 
-
-
 # Get a single post from the database
 @post_routes.route('/posts/<int:id>/one')
 def single_post(id):
     singlePost = Posts.query.filter(Posts.id == id).first()
     return {'singlePost':singlePost.to_dict()}
 
+# Deletes a single post form the database
 @post_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
 def delete_post(id):
     post = Posts.query.get(id)
     db.session.delete(post)
