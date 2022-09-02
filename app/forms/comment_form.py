@@ -6,9 +6,11 @@ from app.models import User
 class CommentForm(FlaskForm):
     post_id=HiddenField("post_id")
     content=TextAreaField("content")
+    location=StringField("location")
     submit=SubmitField("Submit")
 
 class EditCommentForm(FlaskForm):
     post_id=HiddenField("post_id")
     content=TextAreaField("content")
+    location=StringField("location")
     submit=SubmitField("Submit")

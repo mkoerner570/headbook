@@ -6,6 +6,7 @@ class Posts(db.Model):
     id = db.Column(db.Interger, primary_key=True)
     body = db.Column(db.String)
     pic = db.Column(db.String)
+    location = db.Column(db.String)
     likes = db.Column(db.Interger)
 
     user_id = db.Column(db.Interger, db.ForeignKey('users.id'))
@@ -18,5 +19,6 @@ class Posts(db.Model):
             "body":self.body,
             "pic":self.pic,
             "likes":self.likes,
+            "location":self.location,
             "user_id":self.user_id,
         }
